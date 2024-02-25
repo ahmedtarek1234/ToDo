@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:todo/homeScreen.dart';
+import 'package:todo/home/homeScreen.dart';
 import 'package:todo/splashScreen.dart';
 
 void main() {
