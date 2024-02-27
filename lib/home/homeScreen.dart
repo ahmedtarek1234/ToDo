@@ -24,25 +24,15 @@ class _homeScreenState extends State<homeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
         extendBody: true,
-        backgroundColor: Color(0XFFDFECDB),
         appBar: AppBar(
-          backgroundColor: Color(0XFF5D9CEC),
           title: Text(
-           AppLocalizations.of(context)!.todo_list,
-            style: TextStyle(fontSize: 27),
+            AppLocalizations.of(context)!.todo_list,
           ),
         ),
         bottomNavigationBar: BottomAppBar(
           shape: CircularNotchedRectangle(),
           notchMargin: 4,
           child: BottomNavigationBar(
-            selectedItemColor: Colors.blue,
-            unselectedItemColor: Colors.grey,
-            showUnselectedLabels: false,
-            showSelectedLabels: false,
-            backgroundColor: Colors.transparent,
-            elevation: 0,
-
             currentIndex: index,
             onTap: (value) {
               index = value;
@@ -73,8 +63,8 @@ class _homeScreenState extends State<homeScreen> {
               context: context,
               builder: (context) {
                 return Container(
-                  padding: EdgeInsets.only(bottom: MediaQuery.of(context).viewInsets.bottom),
-
+                    padding: EdgeInsets.only(
+                        bottom: MediaQuery.of(context).viewInsets.bottom),
                     child: bottomSheet());
               },
             );

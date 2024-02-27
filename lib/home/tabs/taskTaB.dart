@@ -12,9 +12,13 @@ class tasksTab extends StatelessWidget {
         DatePicker(
           locale: "en",
           DateTime.now(),
+          dateTextStyle:TextStyle(fontSize: 18,color: Color(0XFF5D9CEC)),
+          monthTextStyle: TextStyle(fontSize: 13,color: Color(0XFF5D9CEC)),
+          dayTextStyle: TextStyle(fontSize: 13,color:  Color(0XFF5D9CEC)),
           initialSelectedDate: DateTime.now(),
           selectionColor: Colors.blue,
           selectedTextColor: Colors.white,
+
           onDateChange: (date) {
             // New date selected
             // setState(() {

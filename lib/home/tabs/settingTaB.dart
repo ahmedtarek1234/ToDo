@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:todo/BottomSheets/Theme_BottomSheet.dart';
 import 'package:todo/BottomSheets/language_BottomSheet.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:todo/providers/myProvider.dart';
 
 class settingsTab extends StatelessWidget {
   static const String routename = "settingsTab";
@@ -10,6 +12,7 @@ class settingsTab extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final provider = Provider.of<MyProvider>(context);
     return Padding(
       padding: const EdgeInsets.all(20),
       child: Column(
@@ -41,7 +44,12 @@ class settingsTab extends StatelessWidget {
                   border: Border.all(color: Colors.blue)),
               child: Padding(
                 padding: const EdgeInsets.only(left: 18),
-                child: Text(AppLocalizations.of(context)!.english),
+                child: Text(
+                  provider.languageCode == "ar"
+                      ? AppLocalizations.of(context)!.arabic
+                      : AppLocalizations.of(context)!.english,
+                  style: Theme.of(context).textTheme.bodySmall,
+                ),
               ),
             ),
           ),
@@ -72,7 +80,11 @@ class settingsTab extends StatelessWidget {
                   border: Border.all(color: Colors.blue)),
               child: Padding(
                 padding: const EdgeInsets.only(left: 18),
-                child: Text(AppLocalizations.of(context)!.light,),
+                child: Text(
+                    provider.themeMode == ThemeMode.light
+                        ? AppLocalizations.of(context)!.light
+                        : AppLocalizations.of(context)!.dark,
+                    style: Theme.of(context).textTheme.bodySmall),
               ),
             ),
           ),

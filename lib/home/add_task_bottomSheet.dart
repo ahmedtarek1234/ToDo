@@ -16,115 +16,123 @@ class _bottomSheetState extends State<bottomSheet> {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(16),
-      child: Form(
-        key:formKey,
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Text(
-              AppLocalizations.of(context)!.add_new_task,
-              style: TextStyle(fontSize: 22, fontWeight: FontWeight.w800),
-            ),
-            SizedBox(
-              height: 26,
-            ),
-            TextFormField(
-              validator: (value) {
-                if (value == null || value.isEmpty) {
-                  return "please Enter Task Title";
-                }
-                return null;
-              },
-              controller: titleController,
-              decoration: InputDecoration(
-                errorBorder: OutlineInputBorder(
-                    borderSide: BorderSide(color: Colors.red),
-                    borderRadius: BorderRadius.circular(12)),
-                label: Text(
-                  AppLocalizations.of(context)!.title,
-                  style: TextStyle(fontSize: 20, color: Colors.grey),
-                ),
-                focusedBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(12),
-                    borderSide: BorderSide(color: Colors.blue)),
-                enabledBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(12),
-                    borderSide: BorderSide(color: Colors.blue)),
+    return Container(
+      color: Theme.of(context).primaryColor,
+      child: Padding(
+        padding: const EdgeInsets.all(16),
+        child: Form(
+          key: formKey,
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Text(
+                AppLocalizations.of(context)!.add_new_task,
+                style: TextStyle(fontSize: 22, fontWeight: FontWeight.w800),
               ),
-            ),
-            SizedBox(
-              height: 26,
-            ),
-            TextFormField(
-              validator: (value) {
-                if (value == null || value.isEmpty) {
-                  return "please Enter Task Describtion";
-                }
-                return null;
-              },
-              controller: describtionController,
-              decoration: InputDecoration(
-                errorBorder: OutlineInputBorder(
-                    borderSide: BorderSide(color: Colors.red),
-                    borderRadius: BorderRadius.circular(12)),
-                label: Text(
-                  AppLocalizations.of(context)!.describtion,
-                  style: TextStyle(fontSize: 20, color: Colors.grey),
-                ),
-                focusedBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(12),
-                    borderSide: BorderSide(color: Colors.blue)),
-                enabledBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(12),
-                    borderSide: BorderSide(color: Colors.blue)),
+              SizedBox(
+                height: 26,
               ),
-
-            ),
-            SizedBox(
-              height: 26,
-            ),
-            Container(
-              alignment: Alignment.centerLeft,
-              child: Text(
-                AppLocalizations.of(context)!.select_time,
-                style: TextStyle(fontSize: 20, fontWeight: FontWeight.w500),
-              ),
-            ),
-            SizedBox(
-              height: 16,
-            ),
-            InkWell(
-              onTap: () {
-                selectDate(context);
-              },
-              child: Text(
-                "${choosenDate.toString().substring(0, 10)}",
-                style: TextStyle(fontSize: 20, fontWeight: FontWeight.w200),
-              ),
-            ),
-            SizedBox(
-              height: 12,
-            ),
-            Container(
-              width: double.infinity,
-              child: ElevatedButton(
-                onPressed: () {
-                  if(formKey.currentState!.validate()){
-                    print("validate");
+              TextFormField(
+                style: Theme.of(context).textTheme.bodySmall,
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return "please Enter Task Title";
                   }
+                  return null;
                 },
-                child: Text(AppLocalizations.of(context)!.add_task,),
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.blue,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(20),
+                controller: titleController,
+                decoration: InputDecoration(
+                  border: InputBorder.none,
+                  errorBorder: OutlineInputBorder(
+                      borderSide: BorderSide(color: Colors.red),
+                      borderRadius: BorderRadius.circular(12)),
+                  label: Text(
+                    AppLocalizations.of(context)!.title,
+                    style: TextStyle(fontSize: 20, color: Colors.grey),
+                  ),
+                  focusedBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(12),
+                      borderSide: BorderSide(color: Colors.blue)),
+                  enabledBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(12),
+                      borderSide: BorderSide(color: Colors.blue)),
+                ),
+              ),
+              SizedBox(
+                height: 26,
+              ),
+              TextFormField(
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return "please Enter Task Describtion";
+                  }
+                  return null;
+                },
+                controller: describtionController,
+                decoration: InputDecoration(
+                  border: InputBorder.none,
+                  errorBorder: OutlineInputBorder(
+                      borderSide: BorderSide(color: Colors.red),
+                      borderRadius: BorderRadius.circular(12)),
+                  label: Text(
+                    AppLocalizations.of(context)!.describtion,
+                    style: TextStyle(fontSize: 20, color: Colors.grey),
+                  ),
+                  focusedBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(12),
+                      borderSide: BorderSide(color: Colors.blue)),
+                  enabledBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(12),
+                      borderSide: BorderSide(color: Colors.blue)),
+                ),
+                style: Theme.of(context).textTheme.bodySmall,
+              ),
+              SizedBox(
+                height: 26,
+              ),
+              Container(
+                alignment: Alignment.centerLeft,
+                child: Text(
+                  AppLocalizations.of(context)!.select_time,
+                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.w500),
+                ),
+              ),
+              SizedBox(
+                height: 16,
+              ),
+              InkWell(
+                onTap: () {
+                  selectDate(context);
+                },
+                child: Text(
+                  "${choosenDate.toString().substring(0, 10)}",
+                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.w400),
+                ),
+              ),
+              SizedBox(
+                height: 12,
+              ),
+              Container(
+                width: double.infinity,
+                child: ElevatedButton(
+                  onPressed: () {
+                    if (formKey.currentState!.validate()) {
+                      print("validate");
+                    }
+                  },
+                  child: Text(
+                    AppLocalizations.of(context)!.add_task,
+                  ),
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.blue,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(20),
+                    ),
                   ),
                 ),
-              ),
-            )
-          ],
+              )
+            ],
+          ),
         ),
       ),
     );
