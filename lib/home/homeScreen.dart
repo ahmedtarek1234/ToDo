@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:todo/home/add_task_bottomSheet.dart';
 import 'package:todo/home/tabs/settingTaB.dart';
 import 'package:todo/home/tabs/taskTaB.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class homeScreen extends StatefulWidget {
   static const String routename = "homeScreen";
@@ -27,19 +28,21 @@ class _homeScreenState extends State<homeScreen> {
         appBar: AppBar(
           backgroundColor: Color(0XFF5D9CEC),
           title: Text(
-            "To Do List",
+           AppLocalizations.of(context)!.todo_list,
             style: TextStyle(fontSize: 27),
           ),
         ),
         bottomNavigationBar: BottomAppBar(
           shape: CircularNotchedRectangle(),
-          notchMargin: 2,
+          notchMargin: 4,
           child: BottomNavigationBar(
             selectedItemColor: Colors.blue,
             unselectedItemColor: Colors.grey,
             showUnselectedLabels: false,
             showSelectedLabels: false,
-            backgroundColor: Colors.white,
+            backgroundColor: Colors.transparent,
+            elevation: 0,
+
             currentIndex: index,
             onTap: (value) {
               index = value;

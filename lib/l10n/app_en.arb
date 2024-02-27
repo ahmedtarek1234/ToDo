@@ -1,0 +1,16 @@
+{
+  "todo_list": "To DO List",
+  "add_new_task": "Add New Task",
+  "title": "Title",
+  "describtion": "Describtion",
+  "select_time": "Select Time",
+  "add_task": "Add Task",
+  "delete": "Delete",
+  "edit": "Edit",
+  "lang" : "Language",
+  "dark" : "Dark",
+  "light" : "Light",
+  "arabic" : "Arabic",
+  "english" : "English",
+  "mode" : "Mode"
+}

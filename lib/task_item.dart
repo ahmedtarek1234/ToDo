@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
-
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 class taskItem extends StatelessWidget {
   const taskItem({super.key});
 
@@ -16,7 +16,7 @@ class taskItem extends StatelessWidget {
         startActionPane: ActionPane(motion: DrawerMotion(), children: [
           SlidableAction(
             onPressed: (context) {},
-            label: "Delete",
+            label: AppLocalizations.of(context)!.delete,
             icon: Icons.delete,
             backgroundColor: Colors.red,
             borderRadius: BorderRadius.only(
@@ -26,8 +26,9 @@ class taskItem extends StatelessWidget {
           ),
           SlidableAction(
             onPressed: (context) {},
-            label: "Edit",
+            label: AppLocalizations.of(context)!.edit,
             backgroundColor: Colors.blue,
+            icon: Icons.edit,
           )
         ]),
         child: Container(

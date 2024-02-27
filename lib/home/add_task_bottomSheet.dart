@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class bottomSheet extends StatefulWidget {
   bottomSheet({super.key});
@@ -8,22 +9,22 @@ class bottomSheet extends StatefulWidget {
 }
 
 class _bottomSheetState extends State<bottomSheet> {
-  GlobalKey<FormState> formState = GlobalKey();
   DateTime choosenDate = DateTime.now();
   TextEditingController titleController = TextEditingController();
   TextEditingController describtionController = TextEditingController();
+  var formKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(16),
       child: Form(
-        key: formState,
+        key:formKey,
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
             Text(
-              "Add New Task",
+              AppLocalizations.of(context)!.add_new_task,
               style: TextStyle(fontSize: 22, fontWeight: FontWeight.w800),
             ),
             SizedBox(
@@ -32,10 +33,9 @@ class _bottomSheetState extends State<bottomSheet> {
             TextFormField(
               validator: (value) {
                 if (value == null || value.isEmpty) {
-                  print("please Enter Title");
-                } else {
-                  return null;
+                  return "please Enter Task Title";
                 }
+                return null;
               },
               controller: titleController,
               decoration: InputDecoration(
@@ -43,7 +43,7 @@ class _bottomSheetState extends State<bottomSheet> {
                     borderSide: BorderSide(color: Colors.red),
                     borderRadius: BorderRadius.circular(12)),
                 label: Text(
-                  "title",
+                  AppLocalizations.of(context)!.title,
                   style: TextStyle(fontSize: 20, color: Colors.grey),
                 ),
                 focusedBorder: OutlineInputBorder(
@@ -60,10 +60,9 @@ class _bottomSheetState extends State<bottomSheet> {
             TextFormField(
               validator: (value) {
                 if (value == null || value.isEmpty) {
-                  print("please Enter Decribtion");
-                } else {
-                  return null;
+                  return "please Enter Task Describtion";
                 }
+                return null;
               },
               controller: describtionController,
               decoration: InputDecoration(
@@ -71,7 +70,7 @@ class _bottomSheetState extends State<bottomSheet> {
                     borderSide: BorderSide(color: Colors.red),
                     borderRadius: BorderRadius.circular(12)),
                 label: Text(
-                  "Describtion",
+                  AppLocalizations.of(context)!.describtion,
                   style: TextStyle(fontSize: 20, color: Colors.grey),
                 ),
                 focusedBorder: OutlineInputBorder(
@@ -81,6 +80,7 @@ class _bottomSheetState extends State<bottomSheet> {
                     borderRadius: BorderRadius.circular(12),
                     borderSide: BorderSide(color: Colors.blue)),
               ),
+
             ),
             SizedBox(
               height: 26,
@@ -88,7 +88,7 @@ class _bottomSheetState extends State<bottomSheet> {
             Container(
               alignment: Alignment.centerLeft,
               child: Text(
-                "Select Time",
+                AppLocalizations.of(context)!.select_time,
                 style: TextStyle(fontSize: 20, fontWeight: FontWeight.w500),
               ),
             ),
@@ -111,14 +111,11 @@ class _bottomSheetState extends State<bottomSheet> {
               width: double.infinity,
               child: ElevatedButton(
                 onPressed: () {
-                  if (formState.currentState!.validate()) {
+                  if(formKey.currentState!.validate()){
                     print("validate");
-                  } else {
-                    print("Not validate");
                   }
-                  setState(() {});
                 },
-                child: Text("Add Task"),
+                child: Text(AppLocalizations.of(context)!.add_task,),
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.blue,
                   shape: RoundedRectangleBorder(
