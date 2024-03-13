@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:todo/Task_model.dart';
+import 'package:todo/firbaseFunctions.dart';
 
 class taskItem extends StatelessWidget {
-  const taskItem({super.key});
+  TaskModel model;
+
+  taskItem({required this.model, super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +20,9 @@ class taskItem extends StatelessWidget {
       child: Slidable(
         startActionPane: ActionPane(motion: DrawerMotion(), children: [
           SlidableAction(
-            onPressed: (context) {},
+            onPressed: (context) {
+              FirbaseFunctions.deleteTask(model.id);
+            },
             label: AppLocalizations.of(context)!.delete,
             icon: Icons.delete,
             backgroundColor: Colors.red,
@@ -51,13 +57,13 @@ class taskItem extends StatelessWidget {
               Expanded(
                 child: ListTile(
                   title: Text(
-                    "Task Title",
+                    model.title,
                     style: Theme.of(context).textTheme.bodyLarge,
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,
                   ),
                   subtitle: Text(
-                    "Task Describtion",
+                    model.description,
                     style: Theme.of(context).textTheme.bodyMedium,
                   ),
                   trailing: Container(

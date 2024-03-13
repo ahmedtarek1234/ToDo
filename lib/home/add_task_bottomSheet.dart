@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:todo/Task_model.dart';
+import 'package:todo/firbaseFunctions.dart';
 
 class bottomSheet extends StatefulWidget {
   bottomSheet({super.key});
@@ -117,7 +119,13 @@ class _bottomSheetState extends State<bottomSheet> {
                 child: ElevatedButton(
                   onPressed: () {
                     if (formKey.currentState!.validate()) {
-                      print("validate");
+                      TaskModel task = TaskModel(
+                          description: describtionController.text,
+                          title: titleController.text,
+                          date: DateUtils.dateOnly(choosenDate)
+                              .millisecondsSinceEpoch);
+                      FirbaseFunctions.addTask(task);
+                      Navigator.pop(context);
                     }
                   },
                   child: Text(
