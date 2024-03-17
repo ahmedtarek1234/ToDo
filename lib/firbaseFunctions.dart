@@ -94,7 +94,7 @@ class FirbaseFunctions {
       if (credential.user!.emailVerified) {
         onSuccess();
       } else {
-        onError("Please verify your account");
+      onSuccess();
       }
     } on FirebaseAuthException catch (e) {
       onError(e.message);

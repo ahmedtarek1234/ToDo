@@ -3,6 +3,7 @@ import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:todo/Task_model.dart';
 import 'package:todo/firbaseFunctions.dart';
+import 'package:todo/home/add_task_bottomSheet.dart';
 
 class taskItem extends StatelessWidget {
   TaskModel model;
@@ -32,7 +33,8 @@ class taskItem extends StatelessWidget {
             ),
           ),
           SlidableAction(
-            onPressed: (context) {},
+            onPressed: (context) {
+            },
             label: AppLocalizations.of(context)!.edit,
             backgroundColor: Colors.blue,
             icon: Icons.edit,

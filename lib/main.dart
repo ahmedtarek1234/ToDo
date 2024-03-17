@@ -3,6 +3,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:todo/home/add_task_bottomSheet.dart';
 import 'package:todo/home/homeScreen.dart';
 import 'package:todo/home/tabs/settingTaB.dart';
 import 'package:todo/login/auth.dart';
@@ -38,6 +39,7 @@ void main() async{
           homeScreen.routename: (context) => homeScreen(),
           settingsTab.routename:(context) => settingsTab(),
           authScreen.routename:(context) => authScreen(),
+          bottomSheet.routename:(context) => bottomSheet(),
         },
       );
     },
