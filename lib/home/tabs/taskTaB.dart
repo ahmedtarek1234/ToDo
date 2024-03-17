@@ -5,8 +5,7 @@ import 'package:todo/firbaseFunctions.dart';
 import 'package:todo/task_item.dart';
 
 class tasksTab extends StatefulWidget {
-
-   tasksTab({super.key});
+  tasksTab({super.key});
 
   @override
   State<tasksTab> createState() => _tasksTabState();
@@ -29,10 +28,8 @@ class _tasksTabState extends State<tasksTab> {
           selectionColor: Colors.blue,
           selectedTextColor: Colors.white,
           onDateChange: (date) {
-            selectedDate=date;
-            setState(() {
-
-            });
+            selectedDate = date;
+            setState(() {});
             // New date selected
             // setState(() {
             //   _selectedValue = date;
@@ -56,12 +53,12 @@ class _tasksTabState extends State<tasksTab> {
               }
               List<TaskModel> TasksList =
                   snapshot.data?.docs.map((doc) => doc.data()).toList() ?? [];
-              if(TasksList.isEmpty){
+              if (TasksList.isEmpty) {
                 return Center(child: Text("No Tasks"));
               }
               return ListView.separated(
                   itemBuilder: (context, index) {
-                    return taskItem(model:TasksList[index]);
+                    return taskItem(model: TasksList[index]);
                   },
                   separatorBuilder: (context, index) => SizedBox(height: 12),
                   itemCount: TasksList.length);

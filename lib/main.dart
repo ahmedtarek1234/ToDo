@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:todo/home/homeScreen.dart';
 import 'package:todo/home/tabs/settingTaB.dart';
+import 'package:todo/login/auth.dart';
 import 'package:todo/myThemeData.dart';
 import 'package:todo/providers/myProvider.dart';
 import 'package:todo/splashScreen.dart';
@@ -23,6 +24,7 @@ void main() async{
     builder: (context, child) {
       var provider=Provider.of<MyProvider>(context);
       return  MaterialApp(
+
         theme: myThemeData.lightTheme,
         darkTheme: myThemeData.darkTheme,
         themeMode: provider.themeMode,
@@ -35,6 +37,7 @@ void main() async{
           splashScreen.routename: (context) => splashScreen(),
           homeScreen.routename: (context) => homeScreen(),
           settingsTab.routename:(context) => settingsTab(),
+          authScreen.routename:(context) => authScreen(),
         },
       );
     },
