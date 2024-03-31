@@ -33,8 +33,7 @@ class taskItem extends StatelessWidget {
             ),
           ),
           SlidableAction(
-            onPressed: (context) {
-            },
+            onPressed: (context) {},
             label: AppLocalizations.of(context)!.edit,
             backgroundColor: Colors.blue,
             icon: Icons.edit,

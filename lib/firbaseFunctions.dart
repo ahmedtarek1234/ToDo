@@ -86,18 +86,4 @@ class FirbaseFunctions {
     }
   }
 
-  static login(String Email, String Password, Function onSuccess,
-      Function onError) async {
-    try {
-      final credential = await FirebaseAuth.instance
-          .signInWithEmailAndPassword(email: Email, password: Password);
-      if (credential.user!.emailVerified) {
-        onSuccess();
-      } else {
-      onSuccess();
-      }
-    } on FirebaseAuthException catch (e) {
-      onError(e.message);
-    }
-  }
 }

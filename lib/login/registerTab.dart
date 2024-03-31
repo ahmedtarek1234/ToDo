@@ -3,6 +3,7 @@ import 'package:todo/firbaseFunctions.dart';
 import 'package:todo/home/homeScreen.dart';
 
 class registerTab extends StatelessWidget {
+  static const String routename = "registerTab";
   final _formKey = GlobalKey<FormState>();
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
